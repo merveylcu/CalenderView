@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CalendarView</string>
+    <string name="example_1_title">Takvim 1</string>
+    <string name="example_1_subtitle"> </string>
+    <string name="example_2_title">Takvim 2</string>
+    <string name="example_2_subtitle"> </string>
+    <string name="save">Kaydet</string>
+    <string name="close">Kapat</string>
+    <string name="delete">Sil</string>
+    <string name="week_mode">Haftalık</string>
+</resources>

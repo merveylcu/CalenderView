@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: rootProject.file("dependencies.gradle")
+
+android {
+    compileSdkVersion versions.compile_sdk
+    defaultConfig {
+        applicationId "com.merveylcu.calendarviewsample"
+        minSdkVersion versions.min_sdk_sample
+        targetSdkVersion versions.target_sdk
+        versionCode versions.version_code
+        versionName versions.version_name
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation project(':library')
+    coreLibraryDesugaring deps.desugaring
+    implementation deps.kotlin.stdlib8
+    implementation deps.androidx.legacy
+    implementation deps.androidx.appcompat
+    implementation deps.androidx.core_ktx
+    implementation deps.androidx.constraint_layout
+    implementation deps.androidx.cardview
+    implementation deps.material_library
+
+    testImplementation deps.test.junit
+
+    androidTestImplementation deps.test.android.espresso_core
+    androidTestImplementation deps.test.android.espresso_contrib
+    androidTestImplementation deps.test.android.runner
+    androidTestImplementation deps.test.android.rules
+    androidTestImplementation deps.test.android.ext_junit
+}
